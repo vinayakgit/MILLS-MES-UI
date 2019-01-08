@@ -1,0 +1,66 @@
+/* .panel-heading {
+    padding: 5px 15px;
+}
+
+.panel-footer {
+    padding: 1px 15px;
+    color: #A0A0A0;
+} */
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  /* align-content: space-around; */
+  flex-wrap: nowrap;
+  height: 100%;
+  padding: 5px;
+}
+
+.flex-item {
+  margin:0px 5px 5px 0px;
+}
+
+.flex-item1 {
+flex-grow: 11;
+/* align-self: stretch; */
+}
+
+
+.flex-item2 {
+  flex-grow:1;
+/* align-self: stretch; */
+}
+
+.flex-item2 > mat-card {
+  /* height: 100%; */
+}
+
+
+.footer-toolbar > p {
+  font-size: 10px;
+  float: right;
+}
+
+
+
+.login-form-title {
+  font-size: 14px;
+}
+
+.login-form-lock-icon {
+  margin-top: -3px;
+}
+
+form > mat-card-title {
+  display: flex;
+}
+
+.header-toolbar {
+  justify-content: space-between;
+  align-content: center;
+padding:0px 5px;
+}
+
+.toolbar-main-title {
+  flex-grow: 0;
+}

@@ -1,0 +1,35 @@
+<mat-toolbar  >
+  <div class="flex-container">
+    <div>
+    <mat-icon (click)="sidenav.toggle()"  class="mat-18">menu</mat-icon>
+    </div>
+    <div>
+      <mat-icon class="icon-home" routerLink="/home">home</mat-icon>
+    </div>
+  </div>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" color="primary">
+    <app-nav-menu (menuPushedToTabs$)="onPush($event)"></app-nav-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <nav mat-tab-nav-bar  >
+          <div  *ngFor="let link of navLinks;let i = index;">
+            <a mat-tab-link
+              [routerLink]="[link.routerUrl,link.menuGroupId]"
+              routerLinkActive #rla="routerLinkActive"
+              [active]="rla.isActive">
+              {{link.objectName}}
+            </a>
+            <mat-icon class="mat-15" [inline]="true" (click)="closeTab(i)">close</mat-icon>
+          </div>
+      </nav>
+      <div class="content-body">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

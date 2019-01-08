@@ -1,0 +1,16 @@
+<mat-menu #menuChild="matMenu" xPosition="after" yPosition="above" [overlapTrigger]="false">
+<ng-template matMenuContent>
+  
+  <span *ngFor="let child of items;let i=index">
+    <span *ngIf="child.children.length > 0">
+      <button
+      mat-menu-item (mouseover)="$event.stopPropagation()" [matMenuTriggerFor] ="submenuview.menuChild">{{child.objectName}}</button>
+      <app-menu-items #submenuview [items]="child.children"></app-menu-items>
+    </span>
+
+    <span *ngIf="child.children.length == 0">
+    <button mat-menu-item [routerLink]="[child.routerUrl,child.menuGroupId]" (click)="pushToTabs(child)">{{child.objectName}}</button>
+  </span>
+  </span>
+</ng-template>
+</mat-menu>

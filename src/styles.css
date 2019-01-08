@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+/* @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css"; */
+
+.common-material-card {
+    margin:2px;
+}
+
+
+
+#table-scroll {
+    height:425px;
+    overflow:auto;  
+  } 
+  
+  .mat-paginator-container {
+  
+    align-items: center;
+    min-height: 40px;
+    padding: 0px;
+    background-color: #d9f9f9;
+    flex-wrap: wrap-reverse;
+  }
+  
+
+
+.mat-toolbar.mat-warn {
+  background: #4ec4e2;
+  color: white;
+  height: 35px;
+}

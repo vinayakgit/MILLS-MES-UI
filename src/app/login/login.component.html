@@ -1,0 +1,81 @@
+
+
+<mat-toolbar class="header-toolbar" >
+    <img src="../../assets/images/google.jpg" style="width:80px; height: 33px;">
+    <h1 class="toolbar-main-title">MILLS - Manufacturing Execution System</h1>
+    <div style="font-size: 10px;">Vijayanagar Location</div>
+
+</mat-toolbar>
+
+<div class="flex-container">
+  <div class="flex-item flex-item1">
+    <carousel>
+      <slide>
+        <div class="divs">
+          <img class="carousel-img" src="../../assets/images/jsw.jpeg">
+        </div>
+      </slide>
+      <slide>
+        <div class="divs">
+          <img class="carousel-img" src="../../assets/images/jsw-mumbai.jpg">
+        </div>
+      </slide>
+      <slide>
+        <div class="divs">
+          <img class="carousel-img" src="../../assets/images/jsw-night.jpeg">
+        </div>
+      </slide>
+      <slide>
+        <div class="divs">
+          <img class="carousel-img" src="../../assets/images/jsw-people.jpeg">
+        </div>
+      </slide>
+    </carousel>
+  </div>
+  <div class="flex-item flex-item2">
+      <mat-card class="mat-card" color="accent">
+    <form (ngSubmit)="login()" #f="ngForm" >
+        <mat-card-title >
+          <mat-icon class="login-form-lock-icon">https</mat-icon>
+          <p class="login-form-title">Login to MILLS-MES</p>
+        </mat-card-title>
+        <mat-card-content>
+          <div>
+          <mat-form-field appearance="outline">
+              <mat-label>User Name</mat-label>
+            <input type="text" matInput
+                 name="username"
+                 [(ngModel)]="username"
+                 required
+                 minlength="3"
+                 />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput
+                           type="password"
+                           name="password"
+                           [(ngModel)]="password"
+                           required
+                           placeholder="Password"/>
+              </mat-form-field>
+            </div>
+            <div>
+              <button  matInput mat-raised-button type="submit" color="warn">Login</button>
+            </div>
+            <div>
+            <span><a> Forgot Password?</a></span>
+            </div>
+        </mat-card-content>
+      </form>
+      </mat-card>
+  </div>
+
+</div>
+<mat-toolbar class="footer-toolbar" color="primary">
+  <p>Copyright @2018 - JSW Steel Limited. All Rights Reserved.</p>
+</mat-toolbar>
+
+

@@ -1,0 +1,224 @@
+.card {
+    padding:5px;
+}
+
+#upper-card > .card-header {
+    display: flex;
+    height: 25px;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+ #search-coil-input{
+    border-radius: 10px;
+    width: 150px;
+}
+
+.card-header .popup-links {
+    flex-grow: 1;
+    align-items: center;
+}
+
+#upper-card > .card-header .breadcrumb{
+    float: right;
+    height:26px;
+} 
+
+.flex-div {
+    border : solid 2px white;
+    background: #E5E7E9;
+}
+.flex-container {
+    display: flex;
+}
+/* LEFT SECTION */
+.flex-container .jumbo-parting {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0px;
+}
+.flex-container .left-div{
+    flex-grow: 1;
+}
+.flex-container .right-div{
+    display: flex;
+    flex-grow: 1;
+}
+.left-right-div {
+    display: flex;
+}
+
+.left-right-div .flex-div {
+    flex-grow: 1;
+}
+
+.top-form-feilds-row {
+    height: 52px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+
+.flex-container .unload {
+    display: flex;
+    justify-content: start;
+}
+
+.mat-form-field {
+    margin-left: 3px;
+}
+.jumbo-form-row, .parting-form-row {
+    border: solid 1px white;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+.parting-form-row div {
+    flex-grow: 1;
+}
+
+.jumbo-form-row div {
+    flex-grow: 1;
+}
+
+.header{
+background: #4ec4e2;
+justify-content: center;
+height: 24px;
+align-items: center;
+font-size: 14px;
+font-weight: bold;
+}
+/* .unload-header,.pdo-header {
+    height: 30px;
+} */
+
+/* .parting-form-row .header {
+    background: lightsteelblue;
+}
+.unload-header,.pdo-header {
+    background: lightsteelblue;
+}
+.right-div table thead:hover, .pdo-flex-container table thead:hover {
+    background: lightsteelblue;
+} */
+
+
+
+.right-div table{
+    width:100%;
+}
+
+.jumbo-header, .parting-header, .unload-header, .coil-header {
+    text-align: center
+}
+
+.pdo-flex-container{
+display: flex;
+flex-direction: column; 
+}
+
+.pdo-flex-container .pdo-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+
+.pdo-footer{
+    display: flex;
+    flex-direction: row;
+
+}
+.pdo-footer div {
+    flex-grow: 1;
+    border: solid 2px white;
+
+}
+
+.pdo-footer .footer-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pdo-footer .footer-buttons button {
+    flex-grow: 1;
+    max-width:120px;
+}
+
+.pdo-footer .footer-buttons .mat-raised-button {
+    height: 40px;
+}
+
+.footer-trim{
+    display:flex;
+    flex-direction: column;
+}
+
+
+.jumbo-form-row mat-form-field {
+    height: 51px;
+    font-weight: bold;
+    font-size: small;
+    margin-left: 2px;
+    margin-top:1px;
+}
+.parting-form-row mat-form-field {
+    height: 51px;
+    font-weight: bold;
+    font-size: small;
+    margin-left: 2px;
+    margin-top:1px;
+}
+
+
+
+::ng-deep.top-form-input .mat-form-field-wrapper{
+    width: 150px;
+    height: 60px;
+    margin-top: 0px;
+    margin-left: 4px
+}
+
+::ng-deep.jumbo-form-row > .dropdowns  > .mat-form-field-wrapper{
+    width:100px;
+    height: 58px;
+    margin-top: 3px;
+}
+
+::ng-deep.unload-form-input > .mat-form-field-wrapper {
+    flex-grow: 1;
+    width: 120px;
+    height:60px;
+    margin-left:4px;
+}
+
+::ng-deep.pdo-header > .mat-form-field-wrapper {
+    width: 120px;
+    height:60px;
+    margin-left:2px;    
+}
+
+::ng-deep.pdo-header > .mat-form-field {
+    font-weight: bold;
+    height: 50px;
+}
+
+.common-material-card {
+    padding: 1px;
+}
+
+.mat-input-element {
+    color:#204a80;
+    font-weight:bold;
+    font-size:14px;
+}
+.mat-input-element:disabled {
+    color:#C0C0C0
+}
+
+.unload-form-input {
+    height:52px;
+}

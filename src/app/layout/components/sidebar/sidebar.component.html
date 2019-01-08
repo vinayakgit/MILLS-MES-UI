@@ -1,0 +1,24 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+
+  <div class="list-groups">
+    <a
+    class="list-group-item"
+    *ngFor="let menu of menus"
+    (click)= "pushSubMenu(menu)"
+    [matMenuTriggerFor]="submenu">
+    {{menu.mainMenu}}
+    </a>
+
+  </div>
+  <mat-menu #submenu="matMenu">
+    <button mat-menu-item>submenu1</button>
+    <button mat-menu-item>submenu2</button>
+    <button mat-menu-item>submenu3</button>
+  </mat-menu>
+
+
+
+   <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+      <i  class="fa fa-fw" [ngClass]="{'  fa-angle-double-left':arrowLeftClass,'fa-angle-double-right':!arrowLeftClass}"></i>&nbsp;
+  </div>
+</nav>

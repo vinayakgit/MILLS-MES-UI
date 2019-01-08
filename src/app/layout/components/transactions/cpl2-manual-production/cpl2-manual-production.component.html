@@ -1,0 +1,249 @@
+
+  <div class="card" id="upper-card" class="common-material-card ">
+    <div class="card-header">
+      <div class="popup-links">
+        <input type="text" size="10" id="search-coil-input" placeholder="Search Coil" name="searchcoil" width="80" height="30px">
+      </div>
+      <div class="popup-links"></div>
+      <div class="popup-links">
+        <ol class="breadcrumb">
+          <li>
+            <a href="#">Link1</a>
+          </li>
+          <li>
+            <a href="#">Link2</a>
+          </li>
+          <li>
+            <a href="#">Link3</a>
+          </li>
+          <li>
+            <a href="#">Link4</a>
+          </li>
+          <li>
+            <a href="#">Link5</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="top-form-feilds-row" >
+        <div style="display:flex">
+        <form [formGroup]="topSelectorForm">
+        <mat-form-field class="top-form-input" appearance="outline">
+          <mat-label>Unit</mat-label>
+          <mat-select formControlName="unitselector" placeholder="Unit"  (selectionChange)="getBatches()">
+            <mat-option *ngFor="let elem of units;index as i" [value]="elem.subUnitId">{{elem.subUnitName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="top-form-input" appearance="outline">
+          <mat-label>Batch ID</mat-label>
+          <mat-select #bref formControlName="batchselector" placeholder="Batch ID" (selectionChange)="selectBatch(bref)">
+            <mat-option *ngFor="let batch of batches" [value]="batch.batchId">{{batch.batchNo}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+      </div>
+    <div style="display: flex">
+        <form [formGroup]="topFieldForm">
+        <mat-form-field class="top-form-input" appearance="outline">
+          <mat-label>Schedule No</mat-label>
+          <input matInput formControlName="scheduleno" 
+           type="text" size="10" [value]="currentBatch.scheduleNo"
+           readonly />
+        </mat-form-field>
+
+        <mat-form-field class="top-form-input" appearance="outline">
+          <mat-label>IP/Weight</mat-label>
+          <input matInput formControlName="ipweight" type="text" size="10" [value]="currentBatch.netWeight"
+          readonly
+          />
+        </mat-form-field>
+        <mat-form-field class="top-form-input" appearance="outline">
+          <mat-label>I/P Width</mat-label>
+          <input matInput formControlName="ipwidth" type="text" size="8" [value]="currentBatch.width"
+          readonly
+          />
+        </mat-form-field>
+        <mat-form-field class="top-form-input" appearance="outline">
+          <mat-label>Status</mat-label>
+          <input matInput type="text" size="20" formControlName="status" [value]="currentBatch.statusName"
+          readonly
+          />
+        </mat-form-field>
+      </form>
+    </div>
+      </div>
+
+      <div class="left-right-div">
+        <div *ngIf="showPartingSection" class="flex-div left-div">
+            <form [formGroup]="partingForm">
+            <div class="parting-form-row header">
+            Parting
+            </div>
+            <div class="parting-form-row">
+              <div> Do you want to Parting?
+                <mat-radio-group formControlName="partingRadioBtn" (change)="isParting=!isParting">
+                  <mat-radio-button [value]=true >Yes</mat-radio-button>
+                  &nbsp;&nbsp;
+                  <mat-radio-button [value]=false >No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div *ngIf="isParting">
+                No. of Daughter Coils
+                <select [(value)]="coil" >
+                  <option value="0">Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+            </div>
+
+            <div *ngIf="isParting" class="unload-header header">Unload</div>
+            <div class="unload" *ngIf="isParting">
+              <div>Do you want to Unload?
+                <mat-radio-group formControlName="unloadRadioBtn" (change)="unloadChanged()">
+                  <mat-radio-button [value]=true>Yes</mat-radio-button>
+                  &nbsp;&nbsp;
+                  <mat-radio-button [value]=false>No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <mat-form-field class="unload-form-input" appearance="outline" >
+                <mat-label>Unloading ID</mat-label>
+                <input matInput type="text" size="10" readonly formControlName="unloadingid"
+                readonly/>
+              </mat-form-field>
+              <mat-form-field id="weight-input" class="unload-form-input" appearance="outline">
+                <mat-label>Weight</mat-label>
+                <input matInput type="number" 
+                  formControlName="unloadweight" step="0.001" placeholder="00.000"
+                  (change)="getUnloadingLength()"  
+                  appCustomDecimalPlaceNumber
+                  />
+
+              </mat-form-field>
+              <mat-form-field id="length-input" class="unload-form-input" appearance="outline">
+                <mat-label>Length</mat-label>
+                <input matInput type="text" size="5" formControlName="unloadLength" readonly/>
+              </mat-form-field>
+              <mat-form-field id="odm-input" class="unload-form-input" appearance="outline">
+                <mat-label>ODM</mat-label>
+                <input matInput formControlName = "unloadodm" type="text" size="5" />
+              </mat-form-field>
+            </div>
+          </form>  
+        </div>
+      
+      
+        <div *ngIf="showJumboSection" class="flex-div right-div">
+          <form [formGroup]="jumboForm">
+          <div class="jumbo-form">
+            <div class="jumbo-form-row header">
+              Jumbo
+            </div>
+            <div class="jumbo-form-row">
+              <div> Do you want to Make Jumbo?
+                <mat-radio-group formControlName="jumboRadioBtn" (change)="isJumbo=!isJumbo">
+                  <mat-radio-button [value]=true>Yes</mat-radio-button>
+                  &nbsp;&nbsp;
+                  <mat-radio-button [value]=false>No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div *ngIf="isJumbo">
+                No. of Coils for Jumbo
+                <select [(value)]="coil">
+                  <option value="0">Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="jumbo-form-row  header">Clubbed Coils</div>
+            <div class="coil-details-table">
+              <table class="table">
+                <thead>
+                  <th>Coil ID</th>
+                  <th>Coil Details</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>JH58880094</td>
+                    <td>Passed</td>
+                  </tr>
+                  <tr>
+                    <td>JH58880094</td>
+                    <td>Passed</td>
+                  </tr>
+                  <tr>
+                    <td>JH58880094</td>
+                    <td>Passed</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </form>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+<mat-card class="common-material-card">
+  <form>
+    <div class="pdo-flex-container">
+      <div class="flex-div header pdo-header">
+        <h4>Production Data Output(PDO).</h4>
+        <h5>O/P Weight:56</h5>
+      </div>
+      <div class="flex-div pdo-body">
+        <table class="table">
+          <thead>
+            <th *ngFor="let hd of tableHeaders">{{hd}}</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let dt of data">
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+              <td>{{dt}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="flex-div pdo-footer">
+        <div class="footer-buttons">
+          <button mat-raised-button color="accent">Reset</button>
+          <button mat-raised-button>Save</button>
+          <button mat-raised-button>IP Details</button>
+        </div>
+        <div class="footer-trim">
+          <div class="footer-trim-confirm">
+            Do you want to Trim?
+            <input type="radio" value="YES">Yes
+            <input type="radio" value="NO">No
+          </div>
+          <div>
+            Trimming Loss:
+            <input type="text" size="8"> End Cut:
+            <input type="text" size="8"> Yield:
+            <input type="text" size="8"> Scrap:
+            <input type="text" size="8">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-card>

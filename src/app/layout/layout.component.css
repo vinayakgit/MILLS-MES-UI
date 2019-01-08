@@ -1,0 +1,54 @@
+mat-sidenav-container {
+  /* height: 620px; */
+}
+mat-sidenav {
+  width: 130px;
+  /* background: #4279EE; */
+}
+.content-body {
+  /* overflow-y: scroll; */
+}
+
+.flex-container {
+  display: inline-flex;
+  flex: 1 1 auto;
+  }
+
+  mat-icon {
+    cursor: pointer;
+  }
+
+  
+
+  
+  .mat-tab-nav-bar div {
+    margin-left: 2px;
+    height: 30px;
+    padding: 0px;
+    min-width: 150px;
+  }
+
+  mat-sidenav-content .mat-tab-link {
+    height: 28px;
+  }
+  mat-toolbar {
+    background: LIGHTSTEELBLUE;
+  }
+
+
+mat-toolbar{
+  position: fixed;
+  z-index: 1000;
+  height: 35px;
+}
+
+mat-sidenav, mat-sidenav-content {
+  margin-top: 35px;
+}
+mat-sidenav-content {
+  /* overflow-y: scroll; */
+}
+
+mat-sidenav-content > nav {
+  height: 30px;
+}

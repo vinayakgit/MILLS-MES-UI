@@ -1,0 +1,16 @@
+<mat-nav-list>
+  <mat-list-item *ngFor="let menu of menus;index as i" color="accent">
+    <span *ngIf="menu.children == undefined || menu.children.length == 0">
+     <a [routerLink]="menu.routerUrl"> {{menu.objectName}} </a>
+    </span>
+
+    <span *ngIf="menu.children != undefined && menu.children.length > 0" [matMenuTriggerFor]="submenuview.menuChild">
+      <a [routerLink]="menu.routerUrl" >{{menu.objectName}}</a>
+
+       <app-menu-items #submenuview [items]="menu.children"></app-menu-items>
+      </span>
+
+      </mat-list-item>
+
+
+</mat-nav-list>

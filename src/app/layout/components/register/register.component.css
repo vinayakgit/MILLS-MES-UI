@@ -1,0 +1,37 @@
+mat-card {
+  background: #EDF1F9;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+mat-card-footer > button {
+  margin : 10px;
+}
+
+#pagination-table {
+  width:100%;
+}
+.user-table-card{
+  padding:10px;
+}
+.user-table-card > mat-card-header {
+  background: red;
+}
+
+.mat-column-username {
+  width:250px;
+}
+
+.mat-column-isEdited {
+  width:10px;
+}
+
+mat-form-field {
+  font-size: 14px;
+  width: 80px;
+  margin-left: 15px;
+}
+
+
+
+
